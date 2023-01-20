@@ -1,0 +1,2 @@
+require './lib/text_adventure_game.rb'
+CLI.new.run
