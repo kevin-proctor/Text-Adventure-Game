@@ -1,18 +1,18 @@
 class CLI
     def run
-        puts "Greetings"
-        prompt
+        puts "Greetings, navigate by typeing \"up\", \"down\", \"left\", or \"right\"."
+        a1
     end
 end
 
 def prompt
-    user_input = ""
-    a1
-
-    while user_input != "exit"
-        user_input = gets.chomp
-        break if user_input == 'exit'
-        return user_input
+    @user_input = ""
+    while @user_input != "exit"
+        @user_input
+        puts " Which direction would you like to go?"
+        @user_input = gets.chomp
+        break if @user_input == 'exit'
+        return @user_input
     end
 end
 
@@ -34,13 +34,14 @@ def a1
     puts "|                       N"
     puts "|                       D"
     puts " ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾ "
-    puts "Which direction would you like to go?"
-    puts "Enter: down or right"
-    user_input = gets.chomp
-    if user_input == "right"
+    prompt
+    @user_input
+    if @user_input == "right"
         a2
-    elsif user_input == "down"
+    elsif @user_input == "down"
         b1
+    elsif @user_input == "exit"
+        @user_input = "exit"
     else
         puts "You can't go that way"
         a1
@@ -64,13 +65,14 @@ def a2
     puts "|                       N"
     puts "|                       D"
     puts " ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾ "
-    puts "Which direction would you like to go?"
-    puts "Enter: right or left"
-    user_input = gets.chomp
-    if user_input == "left"
+    prompt
+    @user_input
+    if @user_input == "left"
         a1
-    elsif user_input == "right"
+    elsif @user_input == "right"
         a3
+    elsif @user_input == "exit"
+        @user_input = "exit"
     else
         puts "You can't go that way"
         a2
@@ -94,13 +96,14 @@ def a3
     puts "|                       N"
     puts "|                       D"
     puts " ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾ "
-    puts "Which direction would you like to go?"
-    puts "Enter: left or down"
-    user_input = gets.chomp
-    if user_input == "left"
+    prompt
+    @user_input
+    if @user_input == "left"
         a2
-    elsif user_input == "down"
+    elsif @user_input == "down"
         b3
+    elsif @user_input == "exit"
+        @user_input = "exit"
     else
         puts "You can't go that way"
         a3
@@ -124,11 +127,14 @@ def b1
     puts "|                       N"
     puts "|                       D"
     puts " ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾ "
-    user_input = gets.chomp
-    if user_input == "up"
+    prompt
+    @user_input
+    if @user_input == "up"
         a1
-    elsif user_input == "down"
+    elsif @user_input == "down"
         c1
+    elsif @user_input == "exit"
+        @user_input = "exit"
     else
         puts "You can't go that way"
         b1
@@ -152,9 +158,12 @@ def b2
     puts "|                       N"
     puts "|                       D"
     puts " ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾ "
-    user_input = gets.chomp
-    if user_input == "right"
+    prompt
+    @user_input
+    if @user_input == "right"
         b3
+    elsif @user_input == "exit"
+        @user_input = "exit"
     else
         puts "You can't go that way"
         b2
@@ -178,11 +187,14 @@ def b3
     puts "|                       N"
     puts "|                       D"
     puts " ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾ "
-    user_input = gets.chomp
-    if user_input == "up"
+    prompt
+    @user_input
+    if @user_input == "up"
         a3
-    elsif user_input == "left"
+    elsif @user_input == "left"
         b2
+    elsif @user_input == "exit"
+        @user_input = "exit"
     else
         puts "You can't go that way"
         b3
@@ -206,11 +218,14 @@ def c1
     puts "|                       N"
     puts "|                       D"
     puts " ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾ "
-    user_input = gets.chomp
-    if user_input == "up"
+    prompt
+    @user_input
+    if @user_input == "up"
         b2
-    elsif user_input == "right"
+    elsif @user_input == "right"
         c2
+    elsif @user_input == "exit"
+        @user_input = "exit"
     else
         puts "You can't go that way"
         c1
@@ -234,11 +249,14 @@ def c2
     puts "|                       N"
     puts "|                       D"
     puts " ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾ "
-    user_input = gets.chomp
-    if user_input == "left"
+    prompt
+    @user_input
+    if @user_input == "left"
         c1
-    elsif user_input == "down"
+    elsif @user_input == "down"
         d2
+    elsif @user_input == "exit"
+        @user_input = "exit"
     else
         puts "You can't go that way"
         c2
@@ -262,9 +280,12 @@ def c3
     puts "|                       N"
     puts "|                       D"
     puts " ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾ "
-    user_input = gets.chomp
-    if user_input == "down"
+    prompt
+    @user_input
+    if @user_input == "down"
         d3
+    elsif @user_input == "exit"
+        @user_input = "exit"
     else
         puts "You can't go that way"
         c3
@@ -288,11 +309,14 @@ def d1
     puts "|                       N"
     puts "|                       D"
     puts " ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾ "  
-    user_input = gets.chomp
-    if user_input == "right"
+    prompt
+    @user_input
+    if @user_input == "right"
         d2
-    elsif user_input == "down"
+    elsif @user_input == "down"
         e1
+    elsif @user_input == "exit"
+        @user_input = "exit"
     else
         puts "You can't go that way"
         d1
@@ -316,11 +340,14 @@ def d2
     puts "|                       N"
     puts "|                       D"
     puts " ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾ "
-    user_input = gets.chomp
-    if user_input == "left"
+    prompt
+    @user_input
+    if @user_input == "left"
         d1
-    elsif user_input == "right"
+    elsif @user_input == "right"
         d3
+    elsif @user_input == "exit"
+        @user_input = "exit"
     else
         puts "You can't go that way"
         d2
@@ -344,11 +371,14 @@ def d3
     puts "|                       N"
     puts "|                       D"
     puts " ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾ "   
-    user_input = gets.chomp
-    if user_input == "left"
+    prompt
+    @user_input
+    if @user_input == "left"
         d2
-    elsif user_input == "up"
+    elsif @user_input == "up"
         c3
+    elsif @user_input == "exit"
+        @user_input = "exit"
     else
         puts "You can't go that way"
         d3
@@ -372,11 +402,14 @@ def e1
     puts "|   X                   N"
     puts "|                       D"
     puts " ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾ "
-    user_input = gets.chomp
-    if user_input == "up"
+    prompt
+    @user_input
+    if @user_input == "up"
         d1
-    elsif user_input == "right"
+    elsif @user_input == "right"
         e2
+    elsif @user_input == "exit"
+        @user_input = "exit"
     else
         puts "You can't go that way"
         e1
@@ -400,11 +433,14 @@ def e2
     puts "|           X           N"
     puts "|                       D"
     puts " ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾ "
-    user_input = gets.chomp
-    if user_input == "left"
+    prompt
+    @user_input
+    if @user_input == "left"
         e1
-    elsif user_input == "right"
+    elsif @user_input == "right"
         e3
+    elsif @user_input == "exit"
+        @user_input = "exit"
     else
         puts "You can't go that way"
         e2
@@ -429,4 +465,5 @@ def e3
     puts "|                       D"
     puts " ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾ "
     puts "Winner, you made it out!"
+    @user_input = "exit"
 end
